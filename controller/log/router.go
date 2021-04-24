@@ -1,13 +1,11 @@
-package eat
+package log
 
 import (
 	"github.com/gin-gonic/gin"
 )
 
-
-
 func Router(router *gin.RouterGroup) {
 	{
-		router.GET("/world", Hello)
+		router.GET("/logrecord", LogRecord)
 	}
 }

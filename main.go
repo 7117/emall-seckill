@@ -2,18 +2,17 @@ package main
 
 import (
 	"gin_project/config"
-	"gin_project/controller/eat"
+	_ "gin_project/logs_source"
 	"github.com/gin-gonic/gin"
 )
 
+var err error
+
 func main() {
 
-	router := gin.New()
-
-	router.Use(gin.Logger(), gin.Recovery())
-	router.Use(eat.MiddlewareA())
+	router := gin.Default()
 
 	config.Router(router)
 
-	router.Run(":8081")
+	router.Run(":8080")
 }
