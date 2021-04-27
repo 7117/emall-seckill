@@ -1,15 +1,21 @@
 package config
 
 import (
+	"gin_project/controller/api11"
 	"gin_project/controller/create"
 	"gin_project/controller/eat"
+	"gin_project/controller/err"
+	"gin_project/controller/first"
 	"gin_project/controller/log"
 	"gin_project/controller/login"
 	"gin_project/controller/m"
 	"gin_project/controller/mm"
 	"gin_project/controller/one"
+	"gin_project/controller/raw"
 	"gin_project/controller/session"
+	"gin_project/controller/tran"
 	"gin_project/controller/user"
+	"gin_project/middle"
 	"github.com/gin-gonic/gin"
 	_ "net/http"
 )
@@ -47,4 +53,20 @@ func Router(router *gin.Engine) {
 
 	mm_router := router.Group("/mm")
 	mm.Router(mm_router)
+
+	first_router := router.Group("/first")
+	first.Router(first_router)
+
+	err_router := router.Group("/err")
+	err.Router(err_router)
+
+	tran_router := router.Group("/tran")
+	tran.Router(tran_router)
+
+	raw_router := router.Group("/raw")
+	raw.Router(raw_router)
+
+	api11_router := router.Group("/api11")
+	api11_router.Use(middle.GetCrosQues)
+	api11.Router(api11_router)
 }

@@ -30,6 +30,8 @@ func One(context *gin.Context) {
 		fmt.Println(err)
 	}
 
+	db.AutoMigrate(&UserProfile{})
+
 	//插入
 	//user_profile := UserProfile{
 	//	Pic:   "1.jpg",

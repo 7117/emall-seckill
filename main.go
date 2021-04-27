@@ -2,11 +2,10 @@ package main
 
 import (
 	"gin_project/config"
+	_ "gin_project/data_source"
 	_ "gin_project/logs_source"
 	"github.com/gin-gonic/gin"
 )
-
-var err error
 
 func main() {
 
@@ -14,5 +13,5 @@ func main() {
 
 	config.Router(router)
 
-	router.Run(":8080")
+	router.Run(":8090")
 }
